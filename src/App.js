@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState ,useRef } from 'react'
 import './App.css';
+import CommitList from './components/CommitList'
 
 function App() {
+
+  const [token, setToken] = useState('')
+  // const inputRef = useRef()
+
+  // const handleToken = () =>{
+  //   console.log("huik",inputRef)
+  //   setToken(inputRef.current.value)
+  // }
+
+  // console.log(token)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input onChange={e => setToken(e.target.value)} value={token}/>
+      {/* <button onClick={handleToken}>Enter</button> */}
+      <CommitList token={token}/>
     </div>
   );
 }
