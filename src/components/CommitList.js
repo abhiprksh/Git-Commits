@@ -26,11 +26,11 @@ function CommitList({token}) {
     },[token])
 
   return (
-    <div>
-        <h3>Commit List</h3>
+    <div >
+        <h3>Commit List <button onClick={getData}>Refresh</button></h3>
         {data.length ? data.map(({commit, sha}) => {
-            return <div key={sha}>
-                <div>{commit.message}</div>
+            return <div key={sha} class="card">
+                <h4><b>{commit.message}</b></h4> 
                 <div>
                     <span>{commit.author.date}</span> by <span title={commit.author.email}>{commit.author.name}</span>
                 </div>
