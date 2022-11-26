@@ -1,23 +1,23 @@
-import { useState ,useRef } from 'react'
+import { useState } from 'react'
 import './App.css';
 import CommitList from './components/CommitList'
 
 function App() {
 
-  const [token, setToken] = useState('')
-  // const inputRef = useRef()
+  const [token, setToken] = useState(localStorage.getItem("token") || '')
 
-  // const handleToken = () =>{
-  //   console.log("huik",inputRef)
-  //   setToken(inputRef.current.value)
-  // }
+  const saveToken = () => {
+    localStorage.setItem("token", token)
+  }
 
-  // console.log(token)
+  const clearToken = () => {
+    localStorage.removeItem("token")
+  }
 
   return (
     <div className="App">
       <input onChange={e => setToken(e.target.value)} value={token}/>
-      {/* <button onClick={handleToken}>Enter</button> */}
+      <button onClick={saveToken}>Save</button>
       <CommitList token={token}/>
     </div>
   );
