@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <input onChange={e => setToken(e.target.value)} value={token}/>
+      <input onChange={e => setToken(e.target.value)} value={token} style={{margin:10}}/>
       <button onClick={saveToken}>Save</button>
       <CommitList token={token}/>
     </div>

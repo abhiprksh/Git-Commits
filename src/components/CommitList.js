@@ -11,7 +11,7 @@ function CommitList({token}) {
           });
         const resp = await octokit.request('GET /repos/{owner}/{repo}/commits', {
             owner: "abhiprksh",
-            repo: "News-Articles"
+            repo: "Git-Commits"
         });
         if(resp.status === 200)
             setData(resp.data)
@@ -29,7 +29,7 @@ function CommitList({token}) {
     <div >
         <h3>Commit List <button onClick={getData}>Refresh</button></h3>
         {data.length ? data.map(({commit, sha}) => {
-            return <div key={sha} class="card">
+            return <div key={sha} className="card">
                 <h4><b>{commit.message}</b></h4> 
                 <div>
                     <span>{commit.author.date}</span> by <span title={commit.author.email}>{commit.author.name}</span>
